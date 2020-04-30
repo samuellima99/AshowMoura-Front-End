@@ -57,9 +57,12 @@
   font-size: 18px;
   font-weight: 900;
   color: #111014;
+  margin-left: 12px;
 }
 
 .box-signin .signin-right .input-group {
+  display: flex;
+  justify-content: center;
   margin: 10px 0 10px 0;
   overflow: hidden;
 }
@@ -69,14 +72,14 @@
   height: 45px;
   padding: 2px 0 0 30px;
   border-radius: 8px;
-  color: #BDBDBD;
+  color: #888888;
   border: 3px solid #D7D7D7;
   font-weight: bold;
 }
 
 .box-signin .signin-right .input-group input::placeholder {
   font-weight: bold;
-  color: #BDBDBD;
+  color: #888888;
 }
 
 .box-signin .signin-right .input-group input:focus {
@@ -84,7 +87,7 @@
   border: none;
   padding: 2px 0 0 30px;
   border: 3px solid #949393;
-  color: #BDBDBD;
+  color: #888888;
   transition: 0.5s linear;
   font-weight: bold;
 }
@@ -207,13 +210,13 @@
     padding: 2px 0 0 30px;
     border-radius: 8px;
     border: 3px solid #D7D7D7;
-    color: #BDBDBD;
+    color: #888888;
     font-weight: bold;
   }
 
   .box-signin .signin-right .input-group input::placeholder {
     font-weight: bold;
-    color: #BDBDBD;
+    color: #888888;
   }
 
   .box-signin .signin-right .input-group input:focus {
@@ -223,7 +226,7 @@
     border: 3px solid #808080;
     outline: none;
     font-weight: bold;
-    color: #BDBDBD;
+    color: #888888;
     transition: 0.5s linear;
   }
 
@@ -331,14 +334,14 @@
     height: 45px;
     padding: 2px 0 0 30px;
     border-radius: 8px;
-    color: #BDBDBD;
+    color: #888888;
     border: 3px solid #D7D7D7;
     font-weight: bold;
   }
 
   .box-signin .signin-right .input-group input::placeholder {
-    font-weight: bold;
-    color: #BDBDBD;
+    font-weight: 400;
+    color: #888888;
   }
 
   .box-signin .signin-right .input-group input:focus {
@@ -347,7 +350,7 @@
     padding-bottom: 5px;
     border: 3px solid #808080;
     outline: none;
-    color: #BDBDBD;
+    color: #888888;
     font-weight: bold;
     transition: 0.5s linear;
   }

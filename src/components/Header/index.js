@@ -7,16 +7,22 @@ export default function Header({ children, toggle }) {
   const user = localStorage.getItem('@User');
 
   return (
-    <header className={toggle ? 'header-active' : 'header-disabled'}>
+    <header className={toggle ? 'header-disabled' : 'header-active'}>
+
       <div className="btn-toggle">
         {children}
       </div>
+
       <div className="user-menu">
-        <FiUser size={24} color="#FFF" />
+        <FiUser
+          size={24}
+          color="#FFF"
+        />
         <p className="user">
           {user}
         </p>
       </div>
+
     </header>
   );
 }

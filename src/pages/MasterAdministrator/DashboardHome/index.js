@@ -4,15 +4,14 @@ import { BsFileCheck } from 'react-icons/bs';
 
 import './styles.css';
 
-import Home from '../../../assets/home.svg';
 import Campus from '../../../assets/campus.svg';
 import Administrators from '../../../assets/administrators.svg';
 
-import Sidebar from '../../../components/Sidebar';
-import Menu from '../../../components/Sidebar/Menu';
-import MenuItem from '../../../components/Sidebar/MenuItem';
+import Sidebar from '../../../components/MenuAdminMaster';
 import Header from '../../../components/Header';
 import Content from '../../../components/Content';
+import Footer from '../../../components/footer';
+import Description from '../../../components/DescriptionsPages';
 
 export default function DashboardHome() {
   const [toggle, setToggle] = useState(true);
@@ -23,14 +22,8 @@ export default function DashboardHome() {
 
   return (
     <div className='general-container'>
-      <Sidebar toggle={toggle} bgcolor='#111014 '>
-        <Menu>
-          <MenuItem menuicon={Home} title="Home" />
-          <MenuItem menuicon={Campus} title="Campus" link="/master/registerCampus" />
-          <MenuItem menuicon={Administrators} title="Administradores" />
-        </Menu>
-      </Sidebar>
 
+      <Sidebar toggle={toggle} />
       <Content toggle={toggle}>
         <Header toggle={toggle}>
           <button
@@ -45,36 +38,42 @@ export default function DashboardHome() {
         </Header>
 
         <div className={toggle ? 'main-disabled' : 'main-active'}>
-          <div className='description-page'>
-            <h6 className='description'>Dados do sistema</h6>
-          </div>
+          <Description description="Dados do sistema." />
           <div className='box-informations'>
             <div className='box'>
               <div className='informations'>
                 <p className='information'>Total de Admins</p>
                 <p className='total'>50</p>
               </div>
-              <img src={Administrators} alt='Administradores' style={{ width: '20%' }} />
+              <div className="box-icon">
+                <img src={Administrators} alt='Administradores' />
+              </div>
             </div>
             <div className='box'>
               <div className='informations'>
                 <p className='information'>Total de Campus</p>
                 <p className='total'>60</p>
               </div>
-              <img src={Campus} alt='Campus' style={{ width: '20%' }} />
+              <div className="box-icon">
+                <img src={Campus} alt='Campus' />
+              </div>
             </div>
             <div className='box'>
               <div className='informations'>
                 <p className='information'>Total de Outros</p>
                 <p className='total'>10</p>
               </div>
-              <img src={Administrators} alt='Administradores' style={{ width: '20%' }} />
+              <div className="box-icon">
+                <img src={Administrators} alt='Administradores' />
+              </div>
             </div>
           </div>
-          <div className='description-page'>
-            <h6 className='description'>Lista dos últimos campus cadastrados</h6>
-            <p className='informative'>Role para baixo para ver mais.</p>
-          </div>
+
+          <Description
+            description="Lista dos últimos campus cadastrados"
+            tip="Role para baixo para ver mais."
+          />
+
           <ul>
             <li>
               <BsFileCheck style={{ marginRight: '10px' }} size={24} color='#fff' />
@@ -112,6 +111,9 @@ export default function DashboardHome() {
               </div>
             </li>
           </ul>
+
+          <Footer description="© 2020 - IFCE / Developed by - Samuel Lima" />
+
         </div>
       </Content>
     </div>

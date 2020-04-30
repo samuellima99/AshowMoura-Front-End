@@ -1,0 +1,44 @@
+.description-page {
+  width: 100%;
+  height: 40px;
+  margin-top: 2%;
+  display: flex;
+  flex-direction: column;
+}
+
+.description-page .description {
+  font-size: 18px;
+  color: #ffffff;
+  margin-left: 32px;
+  margin-bottom: 10px;
+  animation: fadeDescription 1s 1s backwards;
+}
+
+.description-page .tip {
+  color: #ffffff;
+  font-size: 15px;
+  margin-left: 32px;
+  animation: fadeInformative 1s 1s backwards;
+}
+
+@keyframes fadeInformative {
+  from {
+    transform: translatey(300px);
+    opacity: 0;
+  }to {
+
+    transform: translatey(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeDescription {
+  from {
+    transform: translateY(300px);
+    opacity: 0;
+  }to {
+
+    transform: translateY(0);
+    opacity: 1;
+  }
+}

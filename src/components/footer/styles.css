@@ -1,0 +1,25 @@
+.footer-container {
+  width: 100%;
+  height: 20%;
+  margin-top: 2%;
+  display: flex;
+  justify-content: center;
+  animation: fadeFooter 1s 1s backwards;
+}
+
+.footer-container .footer-description {
+  color: #ffffff;
+  font-weight: 400;
+  font-size: 14px;
+}
+
+@keyframes fadeFooter {
+  from {
+    transform: translateY(200px);
+    opacity: 0;
+  }to {
+
+    transform: translateY(0);
+    opacity: 1;
+  }
+}

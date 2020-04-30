@@ -1,8 +1,7 @@
-import React, { useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import React, { useState, useEffect } from 'react'
+import { useHistory, useParams } from 'react-router-dom';
 import { MdMenu, MdClose } from 'react-icons/md';
 import Swal from 'sweetalert2'
-
 import './styles.css';
 
 import Home from '../../../../assets/home.svg';
@@ -17,12 +16,12 @@ import Content from '../../../../components/Content';
 
 import api from '../../../../services/api';
 
-export default function RegisterCampus() {
+export default function EditCampus() {
   const [toggle, setToggle] = useState(true);
   const [nameCampus, setNameCampus] = useState('');
-  const [errors, setErrors] = useState({});
 
   const history = useHistory();
+  const { id } = useParams();
 
   function handleToggleSidebar() {
     setToggle(!toggle);
@@ -39,12 +38,12 @@ export default function RegisterCampus() {
       toast.addEventListener('mouseenter', Swal.stopTimer)
       toast.addEventListener('mouseleave', Swal.resumeTimer)
     }
-  })
+  });
 
   function loadAlertSuccess() {
     Toast.fire({
       icon: 'success',
-      title: 'Campus salvo com sucesso!'
+      title: 'Campus editado com sucesso!'
     });
   }
 
@@ -55,19 +54,25 @@ export default function RegisterCampus() {
     });
   }
 
-  async function handleRegisterCampus(e) {
-    e.preventDefault();
+  useEffect(() => {
+    loadDataCampus();
+    async function loadDataCampus() {
+      const response = await api.get(`api/campus/show/${id}`);
+      setNameCampus(response.data.name);
+    }
+  }, [id]);
 
+  async function handleEditCampus(e) {
+    e.preventDefault();
     try {
-      const response = await api.post('api/campus/', {
+      const response = await api.put(`api/campus/${id}`, {
         name: nameCampus
       });
-      console.log(response.data)
-      if (response.status !== 201) {
-        loadAlertError();
-        setErrors(response.data.name.name);
-      } else {
+
+      if (response.status === 201) {
         loadAlertSuccess();
+      } else {
+        loadAlertError()
       }
     } catch (error) {
       console.log(error);
@@ -103,21 +108,21 @@ export default function RegisterCampus() {
 
         <div className={toggle ? 'main-disabled' : 'main-active'}>
           <div className='description-page'>
-            <h6 className='description'>Registrar Campus</h6>
-            <p className='informative'>Área destinada para o registro de Campus.</p>
+            <h6 className='description'>Editar Campus</h6>
+            <p className='informative'>Área destinada para edição de dados dos Campus.</p>
           </div>
           <div className="form-register">
-            <form onSubmit={e => handleRegisterCampus(e)}>
+            <form onSubmit={(e) =>  handleEditCampus(e) }>
               <div className="input-group">
                 <label>Nome do Campus</label>
                 <input
                   type="text"
                   placeholder="Ex: Campus Cedro"
+                  value={nameCampus}
                   onChange={e => setNameCampus(e.target.value)}
                 />
               </div>
-
-              <button type="submit" className="btn-register-campus">Salvar Campus</button>
+              <button type="submit" className="btn-register-campus">Editar Campus</button>
               <button type="button" className="btn-cancel-campus" onClick={cancel}>Cancelar</button>
             </form>
           </div>

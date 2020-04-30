@@ -20,7 +20,7 @@ export default function MenuItem({ menuicon, title, link }) {
       >
         <img src={menuicon} alt={title} className="icon" />
         <Link
-          to={link}
+          to={`${link}`}
           className={linkActive ? "link-active" : "link-disabled"}
         >
           {title}

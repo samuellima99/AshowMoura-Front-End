@@ -17,7 +17,7 @@ import api from '../../services/api';
 import { login } from '../../services/auth';
 
 
-export default function Signin({bg, nextPage}){
+export default function Signin({ bg, nextPage }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [passwordVisibility, setPasswordVisibility] = useState(false);
@@ -56,7 +56,7 @@ export default function Signin({bg, nextPage}){
   return (
     <div className="container">
       <div className="box-signin">
-        <div className="signin-left" style={{backgroundColor: bg}}>
+        <div className="signin-left" style={{ backgroundColor: bg }}>
           <div className="logo">
             <img src={Logo} alt="logo-ashow" width="250px" />
           </div>
@@ -66,7 +66,11 @@ export default function Signin({bg, nextPage}){
           <form onSubmit={(e) => handleSignIn(e)} className="singin-form">
             <h3>Faça seu Login</h3>
             <div className="input-group" style={{ position: 'relative' }}>
-              <MdMailOutline size={20} color="#BDBDBD" style={{ position: 'absolute', top: '13px', left: '10px' }} />
+              <MdMailOutline
+                size={20}
+                color="#888888"
+                style={{ position: 'absolute', top: '13px', left: '18px' }}
+              />
               <input
                 type="email"
                 id="email"
@@ -76,7 +80,11 @@ export default function Signin({bg, nextPage}){
               />
             </div>
             <div className="input-group" style={{ position: 'relative' }}>
-              <MdLockOutline size={20} color="#BDBDBD" style={{ position: 'absolute', top: '13px', left: '10px' }} />
+              <MdLockOutline
+                size={20}
+                color="#888888"
+                style={{ position: 'absolute', top: '13px', left: '18px' }}
+              />
               <input
                 type={passwordVisibility ? 'text' : 'password'}
                 id="password"
@@ -87,17 +95,17 @@ export default function Signin({bg, nextPage}){
                 <MdVisibility
                   onClick={handlePasswordVisibility}
                   size={20}
-                  color="#BDBDBD"
-                  style={{ position: 'absolute', top: '13px', left: '220px' }}
+                  color="#888888"
+                  style={{ position: 'absolute', top: '13px', left: '225px', cursor: 'pointer' }}
                 />
               ) : (
-                <MdVisibilityOff
-                  onClick={handlePasswordVisibility}
-                  size={20}
-                  color="#BDBDBD"
-                  style={{ position: 'absolute', top: '13px', left: '220px' }}
-                />
-              )}
+                  <MdVisibilityOff
+                    onClick={handlePasswordVisibility}
+                    size={20}
+                    color="#888888"
+                    style={{ position: 'absolute', top: '13px', left: '225px', cursor: 'pointer' }}
+                  />
+                )}
 
             </div>
             {error ? <p className="messageError">{error}</p> : null}
