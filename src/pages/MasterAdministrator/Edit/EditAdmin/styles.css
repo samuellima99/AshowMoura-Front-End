@@ -1,0 +1,121 @@
+.form-container-admin {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.form-container-admin .form-admins {
+  width: 95%;
+  height: 80%;
+  margin-top: 3%;
+  border-radius: 8px;
+  background-color: #111014;
+  display: flex;
+  flex-direction: column;
+  animation: fadeForm 1s backwards;
+}
+
+.form-container-admin .form-admins .inputs-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.form-container-admin .form-admins .primary-collumn, .secundary-collumn {
+  width: 36%;
+  height: 100%;
+  margin: 10px;
+  padding-top: 4%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.form-container-admin .form-admins .secundary-collumn {
+  width: 36%;
+  height: 100%;
+  margin: 10px;
+  padding-top: 4%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.form-container-admin .form-admins .inputs-container .input-group-admin {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.form-admins .inputs-container .input-group-admin label, .select-group label {
+  color: #ffffff;
+  margin: 5px 0 5px 0;
+}
+
+.form-admins .inputs-container .input-group-admin input {
+  width: 300px;
+  height: 40px;
+  margin-bottom: 8px;
+  border-radius: 8px;
+  border: none;
+  padding-left: 10px;
+}
+
+.form-admins .inputs-container .select-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-admins .inputs-container .select-group select {
+  width: 300px;
+  height: 40px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  border: none;
+  padding-left: 10px;
+  color: #5c5b5b;
+}
+
+.form-admins .btn-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-admins .btn-container .btn-group {
+  width: 36%;
+  margin: 10px 10px 30px 10px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.form-admins .btn-container .btn-register {
+  width: 300px;
+  height: 40px;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: #068C38;
+}
+
+.form-admins .btn-container .btn-cancel {
+  width: 300px;
+  height: 40px;
+  border: none;
+  border-radius: 8px;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: #D4271B;
+}
+
+.form-register form .btn-register:hover, .btn-cancel:hover {
+  filter: opacity(0.8);
+}

@@ -1,0 +1,182 @@
+.btn-actions-master {
+  width: 60px;
+  display: flex;
+  border-radius:2px;
+  padding: 2px 0 2px 0;
+  justify-content: center;
+  align-items: center;
+  background-color: #0B0A0D;
+}
+
+.btn-actions:hover {
+  transform: scale(1.1);
+}
+
+/*Padronização dos inputs dos forms*/
+.form-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.form-container form .input-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-container form .input-group label, .select-group label {
+  color: #ffffff;
+  margin: 50px 0 10px 0;
+}
+
+.form-container form input {
+  width: 300px;
+  height: 40px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  border: none;
+  padding-left: 10px;
+}
+
+.form-container .select-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-container form select {
+  width: 300px;
+  height: 40px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  border: none;
+  padding-left: 10px;
+}
+
+.form-container form .btn-register {
+  width: 300px;
+  height: 40px;
+  border: none;
+  border-radius: 8px;
+  margin-top: 10px;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: #068C38;
+}
+
+.form-container form .btn-cancel {
+  width: 300px;
+  height: 40px;
+  border: none;
+  border-radius: 8px;
+  margin-top: 10px;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: #D4271B;
+}
+
+.form-register form .btn-register:hover, .btn-cancel:hover {
+  filter: opacity(0.8);
+}
+/*config tables geral*/
+
+.table-container {
+  width: 100%;
+  height: 100%;
+  padding: 0 32px 0 32px;
+}
+
+.table-container .table {
+  width: 100%;
+  height: 75%;
+  padding: 20px;
+  margin-top: 2%;
+  border-radius: 8px;
+  background-color: #111014;
+  animation: fadeTable 1s 1s backwards;
+}
+
+.table .actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.actions .input-op-group-master {
+  width: 50%;
+  display: flex;
+  align-items: center;
+}
+
+.actions .input-op-group-master input[type = search] {
+  width: 250px;
+  height: 36px;
+  border: none;
+  color: #ffffff;
+  border-radius: 20px;
+  margin-left: 10px;
+  padding: 0 10px 0 36px;
+  background-color: #0B0A0D;
+}
+
+.actions .input-op-group-master input[type = search]::placeholder {
+  color: #ffffff;
+  letter-spacing: 1px;
+}
+
+.table .options {
+  width: 100%;
+  height: 50px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.options .btn-op-group-master {
+  display: flex;
+  align-items: center;
+  margin: 0 0 0 10px;
+}
+
+.options .btn-op-group-master .op-link-master {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 20px 8px 20px;
+  border-radius: 20px;
+  text-decoration: none;
+  font-size: 15px;
+  color: #ffffff;
+  background-color: #0B0A0D;
+}
+
+.options .btn-op-group-master .op-link-master:hover {
+  filter: drop-shadow(1px 1px 5px #202020);
+}
+
+button {
+  width: 65px;
+  height: 32px;
+  margin: 10px;
+  color: #ffffff;
+  font-weight: 500;
+  border-radius: 8px;
+  border: 2px solid #999999;
+  cursor: pointer;
+  background-color: transparent;
+}
+
+button:hover{
+  filter: drop-shadow(1px 1px 5px #474747);
+}
+
+@keyframes fadeTable {
+  from {
+    transform: translateX(1000px);
+  }to {
+    transform: translateX(0);
+  }
+}

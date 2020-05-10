@@ -3,7 +3,7 @@ import { FiUser } from 'react-icons/fi';
 
 import './styles.css';
 
-export default function Header({ children, toggle }) {
+export default function Header({ children, toggle, color }) {
   const user = localStorage.getItem('@User');
 
   return (
@@ -16,9 +16,9 @@ export default function Header({ children, toggle }) {
       <div className="user-menu">
         <FiUser
           size={24}
-          color="#FFF"
+          color={`${color}`}
         />
-        <p className="user">
+        <p className="user" style={{ color: `${color}` }}>
           {user}
         </p>
       </div>

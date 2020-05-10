@@ -1,0 +1,66 @@
+.details-container-campus {
+  width: 100%;
+  height: 100%;
+  padding: 0 32px 0 32px;
+}
+
+.details-container-campus .details {
+  width: 100%;
+  height: 80%;
+  padding: 20px;
+  margin-top: 2%;
+  border-radius: 8px;
+  display: flex;
+  background-color: #ffffff;
+  animation: fadedetails 1s 1s backwards;
+}
+
+.details-container-campus .details .descriptions-demands {
+  width: 50%;
+  display: flex;
+  padding: 20px 0 0 10px;
+  flex-direction: column;
+}
+
+.descriptions-demands .demand span, .campus span, .group-occurrence span, .object span {
+  font-weight: 500;
+}
+
+.descriptions-demands .demand, .campus, .group-occurrence, .object {
+  line-height: 40px;
+}
+
+.details .descriptions-demands .actions-btn {
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  margin-top: 10%;
+  background-color: transparent;
+}
+
+
+
+.details .descriptions-demands .actions-btn button:nth-child(1) {
+  background-color: #2cc464;
+}
+
+.details-container-campus .details .image-demand {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.details-container-campus .details .image-demand img {
+  width: 80%;
+}
+
+
+@keyframes fadedetails {
+  from {
+    transform: translateX(1000px);
+  }to {
+    transform: translateX(0);
+  }
+}

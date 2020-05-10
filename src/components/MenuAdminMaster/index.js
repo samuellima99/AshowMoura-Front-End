@@ -1,21 +1,59 @@
 import React from 'react';
-
-import Home from '../../assets/home.svg';
-import Campus from '../../assets/campus.svg';
-import Administrators from '../../assets/administrators.svg';
+import { useHistory } from 'react-router-dom';
+import { BsHouse, BsBuilding, BsPerson } from 'react-icons/bs';
 
 import Sidebar from '../Sidebar';
 import Menu from '../Sidebar/Menu';
 import MenuItem from '../Sidebar/MenuItem';
 
-export default function MenuAdminMaster({toggle}) {
+import api from '../../services/api';
+
+export default function MenuAdminMaster({ toggle }) {
+
+  const history = useHistory();
+
+  async function logout() {
+    await api.post('api/logout');
+    localStorage.clear();
+    history.push('/master/signin');
+  }
 
   return (
-    <Sidebar toggle={toggle} bgcolor='#111014 '>
+    <Sidebar toggle={toggle} bgcolor='#111014' logout={() => logout()}>
       <Menu>
-        <MenuItem menuicon={Home} title="Home" link="/master/home" />
-        <MenuItem menuicon={Campus} title="Campus" link="/master/listCampus" />
-        <MenuItem menuicon={Administrators} title="Administradores" link="/master/listAdmins" />
+        <MenuItem
+          menuicon={
+            <BsHouse
+              size={25}
+              color="#ffffff"
+              style={{ marginLeft: '10px' }}
+            />
+          }
+          title="Home"
+          link="/master/home"
+        />
+        <MenuItem
+          menuicon={
+            <BsBuilding
+              size={25}
+              color="#ffffff"
+              style={{ marginLeft: '10px' }}
+            />
+          }
+          title="Campus"
+          link="/master/listCampus"
+        />
+        <MenuItem
+          menuicon={
+            <BsPerson
+              size={25}
+              color="#ffffff"
+              style={{ marginLeft: '10px' }}
+            />
+          }
+          title="Administradores"
+          link="/master/listAdmins"
+        />
       </Menu>
     </Sidebar>
   );

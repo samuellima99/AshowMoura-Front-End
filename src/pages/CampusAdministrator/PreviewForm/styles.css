@@ -1,0 +1,66 @@
+.form-container-preview {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.form-container-preview .form-preview {
+  width: 50%;
+  height: 100%;
+  margin-top: 5%;
+  padding-bottom: 8%;
+  border-radius: 8px;
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  box-shadow: 1px 1px 10px #cecdcd;
+  overflow-y: scroll;
+  animation: fadeForm 1s backwards;
+}
+
+.form-container-preview .form-preview .header-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.form-container-preview .form-preview .header-form img {
+  width: 25%;
+  margin-top: 5%;
+}
+
+.form-container-preview .form-preview .header-form .preview-title {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 80px;
+}
+
+.form-container-preview .form-preview .body-form {
+  width: 100%;
+}
+
+.form-container-preview .form-preview .body-form .questions-items {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  align-items:flex-start;
+}
+
+.form-preview .body-form .questions-items .item {
+  width: 100%;
+  color: #111014;
+  background-color: transparent;
+}
+
+
+
+
+@keyframes fadeForm {
+  from {
+    transform: translateX(800px);
+  }to {
+    transform: translateX(0);
+  }
+}

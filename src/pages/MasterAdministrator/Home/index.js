@@ -1,11 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { MdMenu, MdClose } from 'react-icons/md';
-import { BsFileCheck } from 'react-icons/bs';
+import { BsFileCheck, BsBuilding, BsPerson, BsPersonDash } from 'react-icons/bs';
 
 import './styles.css';
-
-import Campus from '../../../assets/campus.svg';
-import Administrators from '../../../assets/administrators.svg';
 
 import Sidebar from '../../../components/MenuAdminMaster';
 import Header from '../../../components/Header';
@@ -13,19 +10,52 @@ import Content from '../../../components/Content';
 import Footer from '../../../components/footer';
 import Description from '../../../components/DescriptionsPages';
 
+import api from '../../../services/api';
+
 export default function DashboardHome() {
   const [toggle, setToggle] = useState(true);
+  const [totalCampus, setTotalCampus] = useState('');
+  const [totalAdmins, setTotalAdmins] = useState('');
+  const [totalAdminsNullGroup, setTotalAdminsNullGroup] = useState('');
 
   function handleToggleSidebar() {
     setToggle(!toggle);
   }
 
+  useEffect(() => {
+    async function loadCampus() {
+      const response = await api.get('api/campus/filter');
+      setTotalCampus(response.data.total);
+    }
+
+    loadCampus();
+  }, []);
+
+  useEffect(() => {
+    async function loadAdmins() {
+      const response = await api.get('api/users/searchAdmCampus');
+      setTotalAdmins(response.data.total);
+    }
+
+    loadAdmins();
+  }, []);
+
+  useEffect(() => {
+    async function loadAdminNullGroup() {
+      const response = await api.get('api/users/searchUsersNullGroup');
+      setTotalAdminsNullGroup(response.data.total);
+    }
+
+    loadAdminNullGroup();
+  }, []);
+
+
   return (
     <div className='general-container'>
 
       <Sidebar toggle={toggle} />
-      <Content toggle={toggle}>
-        <Header toggle={toggle}>
+      <Content toggle={toggle} bg="#0B0A0D">
+        <Header toggle={toggle} color="#fff">
           <button
             onClick={handleToggleSidebar}
             className={toggle ? 'btn-active' : 'btn-disabled'}
@@ -43,28 +73,28 @@ export default function DashboardHome() {
             <div className='box'>
               <div className='informations'>
                 <p className='information'>Total de Admins</p>
-                <p className='total'>50</p>
+                <p className='total'>{totalAdmins}</p>
               </div>
               <div className="box-icon">
-                <img src={Administrators} alt='Administradores' />
+                <BsPerson size={50} color="#ffffff" />
               </div>
             </div>
             <div className='box'>
               <div className='informations'>
                 <p className='information'>Total de Campus</p>
-                <p className='total'>60</p>
+                <p className='total'>{totalCampus}</p>
               </div>
               <div className="box-icon">
-                <img src={Campus} alt='Campus' />
+                <BsBuilding size={45} color="#ffffff" />
               </div>
             </div>
             <div className='box'>
               <div className='informations'>
-                <p className='information'>Total de Outros</p>
-                <p className='total'>10</p>
+                <p className='information'>Sem grupo</p>
+                <p className='total'>{totalAdminsNullGroup}</p>
               </div>
               <div className="box-icon">
-                <img src={Administrators} alt='Administradores' />
+                <BsPersonDash size={50} color="#ffffff" />
               </div>
             </div>
           </div>

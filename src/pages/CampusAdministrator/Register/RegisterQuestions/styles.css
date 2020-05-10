@@ -1,0 +1,15 @@
+.actions-insertQuestion {
+  width: 80%;
+  display: flex;
+  justify-content: center;
+}
+
+.actions-insertQuestion .btn-register:nth-child(1){
+  width: 35%;
+  background-color: #2cc464;
+}
+
+.actions-insertQuestion .btn-register:nth-child(2){
+  width: 35%;
+  background-color: #3B59B3;
+}

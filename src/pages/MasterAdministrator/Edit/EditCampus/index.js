@@ -2,23 +2,30 @@ import React, { useState, useEffect } from 'react'
 import { useHistory, useParams } from 'react-router-dom';
 import { MdMenu, MdClose } from 'react-icons/md';
 import Swal from 'sweetalert2'
+
 import './styles.css';
 
-import Home from '../../../../assets/home.svg';
-import Campus from '../../../../assets/campus.svg';
-import Administrators from '../../../../assets/administrators.svg';
-
-import Sidebar from '../../../../components/Sidebar';
-import Menu from '../../../../components/Sidebar/Menu'
-import MenuItem from '../../../../components/Sidebar/MenuItem';
+import Sidebar from '../../../../components/MenuAdminMaster';
 import Header from '../../../../components/Header';
 import Content from '../../../../components/Content';
+import Description from '../../../../components/DescriptionsPages';
+import Modal from '../../../../components/Modal';
 
 import api from '../../../../services/api';
 
 export default function EditCampus() {
   const [toggle, setToggle] = useState(true);
   const [nameCampus, setNameCampus] = useState('');
+  const [showModal, setShowModal] = useState(false);
+  const [errors, setErrors] = useState('');
+
+  function handleModal() {
+    setShowModal(!showModal);
+  }
+
+  function handleClose() {
+    setShowModal(!showModal);
+  }
 
   const history = useHistory();
   const { id } = useParams();
@@ -71,30 +78,21 @@ export default function EditCampus() {
 
       if (response.status === 201) {
         loadAlertSuccess();
+        history.push('/master/listCampus');
       } else {
-        loadAlertError()
+        loadAlertError();
+        setErrors(response.data.name[0]);
       }
     } catch (error) {
       console.log(error);
     }
   }
 
-  function cancel() {
-    history.goBack();
-  }
-
   return (
     <div className="general-container">
-      <Sidebar toggle={toggle} bgcolor='#111014 '>
-        <Menu>
-          <MenuItem menuicon={Home} title="Home" />
-          <MenuItem menuicon={Campus} title="Campus" link="/master/listCampus" />
-          <MenuItem menuicon={Administrators} title="Administradores" />
-        </Menu>
-      </Sidebar>
-
-      <Content toggle={toggle}>
-        <Header toggle={toggle} user='Samuel'>
+      <Sidebar toggle={toggle} bgcolor='#111014 ' />
+      <Content toggle={toggle} bg="#0B0A0D">
+        <Header toggle={toggle} color="#ffffff">
           <button
             onClick={handleToggleSidebar}
             className={toggle ? 'btn-active' : 'btn-disabled'}
@@ -107,25 +105,47 @@ export default function EditCampus() {
         </Header>
 
         <div className={toggle ? 'main-disabled' : 'main-active'}>
-          <div className='description-page'>
-            <h6 className='description'>Editar Campus</h6>
-            <p className='informative'>Área destinada para edição de dados dos Campus.</p>
-          </div>
-          <div className="form-register">
-            <form onSubmit={(e) =>  handleEditCampus(e) }>
-              <div className="input-group">
-                <label>Nome do Campus</label>
-                <input
-                  type="text"
-                  placeholder="Ex: Campus Cedro"
-                  value={nameCampus}
-                  onChange={e => setNameCampus(e.target.value)}
-                />
-              </div>
-              <button type="submit" className="btn-register-campus">Editar Campus</button>
-              <button type="button" className="btn-cancel-campus" onClick={cancel}>Cancelar</button>
-            </form>
-          </div>
+          {
+            showModal ? (
+              <Modal
+                text="Deseja mesmo fazer isso?"
+                description="Ao cancelar você será direcionado a lista de campus!"
+                btnPrimaryText="Sim"
+                btnSecundaryText="Não"
+                btnPrimary="#00C13F"
+                btnSecundary="#ff0027"
+                bg="#111014"
+                show={showModal}
+                close={() => { handleClose() }}
+                redirect="/master/listCampus"
+              />
+            ) : (
+                <>
+                  <Description
+                    description="Editar Campus"
+                    tip="Área destinada para edição de dados dos Campus."
+                  />
+                  <div className="form-container">
+                    <form onSubmit={(e) => handleEditCampus(e)}>
+                      <div className="input-group">
+                        <label>Nome do Campus</label>
+                        <input
+                          type="text"
+                          placeholder="Ex: Campus Cedro"
+                          value={nameCampus}
+                          onChange={e => setNameCampus(e.target.value)}
+                        />
+                        <p className="errors">
+                          {errors}
+                        </p>
+                      </div>
+                      <button type="submit" className="btn-register">Editar Campus</button>
+                      <button type="button" className="btn-cancel" onClick={() => handleModal()}>Cancelar</button>
+                    </form>
+                  </div>
+                </>
+              )
+          }
         </div>
       </Content>
     </div>

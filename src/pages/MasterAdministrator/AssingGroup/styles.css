@@ -1,0 +1,20 @@
+.form-container form {
+  width: 50%;
+  height: 70%;
+  margin-top: 5%;
+  border-radius: 8px;
+  background-color: #111014;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  animation: fadeForm 1s backwards;
+}
+
+@keyframes fadeForm {
+  from {
+    transform: translateX(800px);
+  }to {
+    transform: translateX(0);
+  }
+}

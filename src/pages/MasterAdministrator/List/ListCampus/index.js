@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { MdMenu, MdClose, MdAdd, MdLink } from 'react-icons/md';
+import { MdMenu, MdClose, MdAdd } from 'react-icons/md';
 import { BsSearch, BsTrash, BsPencil } from 'react-icons/bs';
 
-import './styles.css';
+import '../../styles/global.css';
 
 import Sidebar from '../../../../components/MenuAdminMaster';
 import Header from '../../../../components/Header';
@@ -99,8 +99,8 @@ export default function ListCampus() {
   return (
     <div className="general-container">
       <Sidebar toggle={toggle} />
-      <Content toggle={toggle}>
-        <Header toggle={toggle} user='Samuel'>
+      <Content toggle={toggle} bg="#0B0A0D">
+        <Header toggle={toggle} color="#ffffff">
           <button
             onClick={handleToggleSidebar}
             className={toggle ? 'btn-active' : 'btn-disabled'}
@@ -123,18 +123,18 @@ export default function ListCampus() {
             <div className="table">
 
               <div className="actions">
-                <div className="input-op-group">
-                  <BsSearch size={20} color="#111014" style={{position: 'absolute', marginLeft: '20px'}} />
+                <div className="input-op-group-master">
+                  <BsSearch size={18} color="#ffffff" style={{ position: 'absolute', marginLeft: '20px' }} />
                   <input
                     type="search"
-                    placeholder="Buscar..."
+                    placeholder="Buscar Campus..."
                     value={search}
                     onChange={updateSearch.bind(this)}
                   />
                 </div>
                 <div className="options">
-                  <div className="btn-op-group">
-                    <Link to="/master/registerCampus" className="op-link">
+                  <div className="btn-op-group-master">
+                    <Link to="/master/registerCampus" className="op-link-master">
                       <MdAdd
                         size={24}
                         color="#3708bc"
@@ -161,12 +161,12 @@ export default function ListCampus() {
                       <Td>{camp.id}</Td>
                       <Td>{camp.name}</Td>
                       <Td>
-                        <Link to={`/master/editCampus/${camp.id}`} className="btn-actions">
+                        <Link to={`/master/editCampus/${camp.id}`} className="btn-actions-master">
                           <BsPencil size={20} color="#ffffff" />
                         </Link>
                       </Td>
                       <Td>
-                        <Link className="btn-actions" onClick={() => DeleteCampus(camp.id)}>
+                        <Link className="btn-actions-master" onClick={() => DeleteCampus(camp.id)}>
                           <BsTrash size={20} color="#ff1100" />
                         </Link>
                       </Td>
@@ -185,6 +185,7 @@ export default function ListCampus() {
             </div>
           </div>
         </div>
+        <Footer description="© 2020 - IFCE / Developed by - Samuel Lima" />
       </Content>
     </div >
   );

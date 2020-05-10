@@ -110,7 +110,13 @@ export default function Signin({ bg, nextPage }) {
             </div>
             {error ? <p className="messageError">{error}</p> : null}
             <div className="btn-group">
-              <button type="submit" className="btn-signin">{loading ? 'Logando...' : 'Entrar'}</button>
+              <button
+                type="submit"
+                className="btn-signin"
+                style={{ backgroundColor: bg }}
+              >
+                {loading ? 'Logando...' : 'Entrar'}
+              </button>
             </div>
           </form>
         </div>

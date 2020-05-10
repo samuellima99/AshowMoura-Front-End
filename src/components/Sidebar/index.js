@@ -4,7 +4,9 @@ import './styles.css';
 
 import Logo from './Logo';
 
-export default function Sidebar({ toggle, bgcolor, children }) {
+import BtnLogout from '../BtnLogout';
+
+export default function Sidebar({ toggle, bgcolor, children, logout }) {
   return (
     <div
       className={toggle ? 'sidebar-active' : 'sidebar-disabled'}
@@ -12,11 +14,7 @@ export default function Sidebar({ toggle, bgcolor, children }) {
     >
       <Logo />
       {children}
-      <div className="btn-logout">
-        <button className="logout">
-          Logout
-        </button>
-      </div>
+      <BtnLogout bgcolor="#E2E3D8" />
     </div>
   );
 }

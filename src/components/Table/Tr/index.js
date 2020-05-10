@@ -2,9 +2,9 @@ import React from 'react';
 import './styles.css';
 
 
-export default function Tr({ children }) {
+export default function Tr({ children, color }) {
   return (
-    <tr>
+    <tr style={{ backgroundColor: `${color}` }}>
       {children}
     </tr>
   );

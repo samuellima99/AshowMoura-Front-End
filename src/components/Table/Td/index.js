@@ -2,10 +2,10 @@ import React from 'react';
 import './styles.css';
 
 
-export default function Td({ children }) {
+export default function Td({ children, color }) {
   return (
-    <td>
-      {children}
+    <td style={{ color: `${color}` }}>
+       {children}
     </td>
   );
 }

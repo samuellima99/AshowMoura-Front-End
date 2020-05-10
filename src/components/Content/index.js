@@ -1,9 +1,12 @@
 import React from 'react';
 import './styles.css';
 
-export default function Content({ children, toggle }) {
+export default function Content({ children, toggle, bg }) {
   return (
-    <div className={toggle ? "container-content-disabled" : "container-content-active"}>
+    <div
+      style={{ backgroundColor: bg }}
+      className={toggle ? "container-content-disabled" : "container-content-active"}
+    >
       {children}
     </div>
   );

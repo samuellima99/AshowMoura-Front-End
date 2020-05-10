@@ -8,7 +8,7 @@
   align-items: center;
 }
 
-.container-pagination  button {
+.container-pagination button {
   width: 32px;
   height: 32px;
   display: flex;
@@ -21,7 +21,7 @@
   background-color: #0B0A0D;
 }
 
-.container-pagination  button:hover{
+.container-pagination button:hover{
   filter: drop-shadow(1px 1px 5px #202020);
 }
 
