@@ -168,7 +168,6 @@ export default function EditObjects() {
                             ))
                           }
                         </select>
-
                       </div>
                       <button type="submit" className="btn-register">Salvar Alterações</button>
                       <button type="button" className="btn-cancel" onClick={() => handleModal()}>Cancelar</button>

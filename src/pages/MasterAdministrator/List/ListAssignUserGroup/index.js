@@ -79,7 +79,7 @@ export default function ListAssingUserGroup() {
   useEffect(() => {
     async function filterAdmin() {
       try {
-        const response = await api.get(`api/campus/searchUsersNullGroup?name=${search}`);
+        const response = await api.get(`api/users/searchUsersNullGroup?name=${search}`);
         setAdmins(response.data.data);
       } catch (error) {
         console.log(error)

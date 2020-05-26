@@ -21,7 +21,7 @@ export default function EditAdmin() {
   const [name, setName] = useState('');
   const [cpf, setCpf] = useState('');
   const [email, setEmail] = useState('');
-  const [setFk_campus_id] = useState('');
+  const [campusId, setFk_campus_id] = useState('');
   const [campus, setCampus] = useState([]);
   const [showModal, setShowModal] = useState(false);
 
@@ -88,6 +88,7 @@ export default function EditAdmin() {
   useEffect(() => {
     async function loadDataAdmin() {
       const response = await api.get(`api/users/show/${id}`);
+      console.log(response.data)
       setName(response.data.name);
       setCpf(response.data.cpf);
       setEmail(response.data.email);
@@ -101,17 +102,17 @@ export default function EditAdmin() {
     e.preventDefault();
 
     try {
-      const response = await api.post('api/register/', {
-        name: name,
+      const response = await api.put(`api/users/${id}`, {
+        name,
         email,
       });
 
-      console.log(response.data)
-      if (response.status === 201) {
+      console.log(response)
+      if (response.status !== 200) {
+        loadAlertError();
+      } else {
         loadAlertSuccess();
         history.push('/master/listAdmins');
-      } else {
-        loadAlertError();
       }
     } catch (error) {
       console.log(error);
@@ -170,16 +171,7 @@ export default function EditAdmin() {
                               onChange={e => setName(e.target.value)}
                             />
                           </div>
-                          <div className="input-group-admin">
-                            <label>CPF</label>
-                            <input
-                              type="text"
-                              placeholder="Ex: 610.907.883-20"
-                              value={cpf}
-                              onChange={e => setCpf(e.target.value)}
-                              disabled
-                            />
-                          </div>
+
                           <div className="input-group-admin">
                             <label>E-mail de Acesso</label>
                             <input
@@ -190,47 +182,26 @@ export default function EditAdmin() {
                             />
                           </div>
                         </div>
-                        <div className="secundary-collumn">
-                          <div className="input-group-admin">
-                            <label>Senha de Acesso</label>
-                            <input
-                              type="password"
-                              placeholder="Ex: _*2020R"
-                              value="*******"
-                              disabled
-                            />
-                          </div>
-                          <div className="select-group">
-                            <label>Selecionar Campus</label>
-                            <select onChange={(e) => handleSelectCampus(e)}>
-                              {
-                                campus.map(camp => (
-                                  <option key={camp.id} value={camp.id}>{camp.name}</option>
-                                ))
-                              }
-                            </select>
-                          </div>
-                        </div>
                       </div>
-                      <div className="btn-container">
-                        <div className="btn-group">
-                          <button
-                            type="submit"
-                            className="btn-register"
-                          >
-                            Salvar Administrador
+
+                      <div className="btn-group">
+                        <button
+                          type="submit"
+                          className="btn-register"
+                        >
+                          Editar
                           </button>
-                        </div>
-                        <div className="btn-group">
-                          <button
-                            type="button"
-                            className="btn-cancel"
-                            onClick={() => handleModal()}
-                          >
-                            Cancelar
-                          </button>
-                        </div>
                       </div>
+                      <div className="btn-group">
+                        <button
+                          type="button"
+                          className="btn-cancel"
+                          onClick={() => handleModal()}
+                        >
+                          Cancelar
+                          </button>
+                      </div>
+
                     </form>
                   </div>
                 </>

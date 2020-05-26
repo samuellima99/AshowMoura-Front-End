@@ -1,0 +1,391 @@
+.container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container .box-signin {
+  width: 800px;
+  height: 450px;
+  display: flex;
+  flex-direction: row;
+  border-radius: 8px;
+  -webkit-box-shadow: 0 1px 10px -3px #9e9e9e;
+  -moz-box-shadow: 0 1px 10px -3px #9e9e9e;
+  box-shadow: 0 1px 10px -3px #9e9e9e;
+  animation: fadeform 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+  overflow: hidden;
+}
+
+.container .box-signin .signin-right {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  background-color: #f7f5f5;
+}
+
+.container .box-signin .signin-right .singin-form {
+  display: flex;
+  flex-direction: column;
+  animation: fadeinputs 1.5s cubic-bezier(0.23, 1, 0.320, 1);
+}
+
+.container .box-signin .signin-left {
+  width: 50%;
+  display: flex;
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.container .box-signin .signin-left .logo .logoMobile {
+  display: none;
+}
+
+.container .box-signin .signin-left .message {
+  color: #FFFFFF;
+  font-size: 15px;
+  transform: translateY(-55px);
+}
+
+.container .box-signin .signin-right h3 {
+  font-size: 18px;
+  font-weight: 900;
+  color: #111014;
+  margin-left: 12px;
+}
+
+.box-signin .signin-right .input-group {
+  display: flex;
+  justify-content: center;
+  margin: 10px 0 10px 0;
+  overflow: hidden;
+}
+
+.box-signin .signin-right .input-group input {
+  width: 250px;
+  height: 45px;
+  padding: 2px 0 0 30px;
+  border-radius: 8px;
+  color: #888888;
+  border: 3px solid #D7D7D7;
+  font-weight: bold;
+}
+
+.box-signin .signin-right .input-group input::placeholder {
+  font-weight: bold;
+  color: #888888;
+}
+
+.box-signin .signin-right .input-group input:focus {
+  width: 250px;
+  border: none;
+  padding: 2px 0 0 30px;
+  border: 3px solid #949393;
+  color: #888888;
+  transition: 0.5s linear;
+  font-weight: bold;
+}
+
+.box-signin .signin-right .singin-form .messageError {
+  font-size: 14px;
+  color: #ff0000;
+}
+
+.box-signin .signin-right .btn-group {
+  margin: 10px 0 1px 0;
+}
+
+.box-signin .signin-right .btn-group .btn-signin {
+  width: 250px;
+  height: 40px;
+  background-color: #111014;
+  border: none;
+  border-radius: 5px;
+  color: #FFFFFF;
+  font-weight: 700;
+  font-size: 11pt;
+  cursor: pointer;
+}
+
+.box-signin .signin-right .btn-group .btn-signin:hover {
+  filter: opacity(0.9);
+}
+
+@keyframes fadeform {
+  from {
+    transform: translateY(-500px);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeinputs {
+  from {
+    transform: translateX(500px);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@media(max-width: 768px){
+  .container .box-signin {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    -webkit-box-shadow: 0 1px 10px -3px #9e9e9e;
+    -moz-box-shadow: 0 1px 10px -3px #9e9e9e;
+    box-shadow: 0 1px 10px -3px #9e9e9e;
+    overflow: hidden;
+    animation: fadeformmobile 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+  }
+
+  .container .box-signin .signin-right {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    background-color: #f7f5f5;
+  }
+
+  .container .box-signin .signin-right .singin-form {
+    display: flex;
+    flex-direction: column;
+    transform: translateY(-40px);
+  }
+
+  .container .box-signin .signin-left {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    border: none;
+    background-color: #f7f5f5;
+  }
+
+
+  .container .box-signin .signin-left .logo {
+    display: flex;
+    justify-content: center;
+  }
+
+  .container .box-signin .signin-left .logo .logoMobile {
+    width: 50%;
+    display: block;
+  }
+
+  .container .box-signin .signin-left .logo img {
+    display: none;
+  }
+
+  .container .box-signin .signin-left .message {
+    color: #111014;
+    font-weight: 600;
+    font-size: 14px;
+    transform: translateY(-40px);
+  }
+
+  .container .box-signin .signin-right h3 {
+    font-size: 20px;
+    font-weight: 900;
+    color: #111014;
+  }
+
+  .box-signin .signin-right .input-group {
+    margin: 10px 0 10px 0;
+    overflow: hidden;
+  }
+
+  .box-signin .signin-right .input-group input {
+    width: 250px;
+    height: 45px;
+    padding: 2px 0 0 30px;
+    border-radius: 8px;
+    border: 3px solid #D7D7D7;
+    color: #888888;
+    font-weight: bold;
+  }
+
+  .box-signin .signin-right .input-group input::placeholder {
+    font-weight: bold;
+    color: #888888;
+  }
+
+  .box-signin .signin-right .input-group input:focus {
+    width: 250px;
+    border: none;
+    padding-bottom: 5px;
+    border: 3px solid #808080;
+    outline: none;
+    font-weight: bold;
+    color: #888888;
+    transition: 0.5s linear;
+  }
+
+  .box-signin .signin-right .singin-form .messageError {
+    font-size: 14px;
+    color: red;
+  }
+
+  .box-signin .signin-right .btn-group {
+    margin: 10px 0 1px 0;
+  }
+
+  .box-signin .signin-right .btn-group .btn-signin {
+    width: 250px;
+    height: 40px;
+    background-color: #111014;
+    border: none;
+    border-radius: 5px;
+    color: #FFFFFF;
+    font-weight: 700;
+    font-size: 11pt;
+    cursor: pointer;
+  }
+
+  .box-signin .signin-right .btn-group .btn-signin:hover {
+    filter: opacity(0.9);
+  }
+
+  @keyframes fadeformmobile {
+    from {
+      transform: translatex(-500px);
+    }
+    to {
+      transform: translatex(0);
+    }
+  }
+}
+
+@media(max-width: 400px){
+  .container .box-signin {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    -webkit-box-shadow: 0 1px 10px -3px #9e9e9e;
+    -moz-box-shadow: 0 1px 10px -3px #9e9e9e;
+    box-shadow: 0 1px 10px -3px #9e9e9e;
+    overflow: hidden;
+    animation: fadeformmobile 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+  }
+
+  .container .box-signin .signin-right {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    background-color: #f7f5f5;
+  }
+
+  .container .box-signin .signin-right .singin-form {
+    display: flex;
+    flex-direction: column;
+    transform: translateY(-40px);
+  }
+
+  .container .box-signin .signin-left {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    border: none;
+    background-color: #f7f5f5;
+  }
+
+
+  .container .box-signin .signin-left .logo {
+    display: flex;
+    justify-content: center;
+  }
+
+  .container .box-signin .signin-left .logo img {
+    display: block;
+  }
+
+  .container .box-signin .signin-left .message {
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 14px;
+    transform: translateY(-40px);
+  }
+
+  .container .box-signin .signin-right h3 {
+    font-size: 20px;
+    font-weight: 900;
+    color: #111014;
+  }
+
+  .box-signin .signin-right .input-group {
+    margin: 10px 0 10px 0;
+    overflow: hidden;
+  }
+
+  .box-signin .signin-right .input-group input {
+    width: 250px;
+    height: 45px;
+    padding: 2px 0 0 30px;
+    border-radius: 8px;
+    color: #888888;
+    border: 3px solid #D7D7D7;
+    font-weight: bold;
+  }
+
+  .box-signin .signin-right .input-group input::placeholder {
+    font-weight: 400;
+    color: #888888;
+  }
+
+  .box-signin .signin-right .input-group input:focus {
+    width: 250px;
+    border: none;
+    padding-bottom: 5px;
+    border: 3px solid #808080;
+    outline: none;
+    color: #888888;
+    font-weight: bold;
+    transition: 0.5s linear;
+  }
+
+  .box-signin .signin-right .singin-form .messageError {
+    font-size: 14px;
+    color: red;
+  }
+
+  .box-signin .signin-right .btn-group {
+    margin: 10px 0 1px 0;
+  }
+
+  .box-signin .signin-right .btn-group .btn-signin {
+    width: 250px;
+    height: 40px;
+    background-color: #111014;
+    border: none;
+    border-radius: 5px;
+    color: #FFFFFF;
+    font-weight: 700;
+    font-size: 11pt;
+    cursor: pointer;
+  }
+
+  .box-signin .signin-right .btn-group .btn-signin:hover {
+    filter: opacity(0.9);
+  }
+
+  @keyframes fadeformmobile {
+    from {
+      transform: translatex(-500px);
+    }
+    to {
+      transform: translatex(0);
+    }
+  }
+}

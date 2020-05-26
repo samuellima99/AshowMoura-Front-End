@@ -56,7 +56,7 @@ export default function RegisterAdmin() {
   function loadAlertSuccess() {
     Toast.fire({
       icon: 'success',
-      title: 'Administrador salvo com sucesso!'
+      title: 'Usuário salvo com sucesso!'
     });
   }
 
@@ -75,6 +75,7 @@ export default function RegisterAdmin() {
     async function loadCampus() {
       try {
         const response = await api.get('api/campus/');
+        console.log(response.data)
         setCampus(response.data);
       } catch (error) {
         console.log(error);
@@ -86,23 +87,19 @@ export default function RegisterAdmin() {
 
   async function handleRegisterAdmin(e) {
     e.preventDefault();
-
+    console.log(fk_campus_id)
     try {
       const response = await api.post('api/register', {
-        name: name,
+        name,
         cpf,
         email,
         password,
         fk_campus_id
       });
 
-      if (response.status === 200) {
-        loadAlertError();
-        setErrors(response.data.errors);
-      } else {
-        loadAlertSuccess();
-        history.push('/master/listAdmins');
-      }
+      loadAlertSuccess();
+      history.push('/master/listAdmins');
+
     } catch (error) {
       console.log(error.message);
     }

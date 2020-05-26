@@ -14,12 +14,8 @@ export default function Header({ children, toggle, color }) {
       </div>
 
       <div className="user-menu">
-        <FiUser
-          size={24}
-          color={`${color}`}
-        />
         <p className="user" style={{ color: `${color}` }}>
-          {user}
+          Bem-vindo{`${'(a)'}`}, {user}
         </p>
       </div>
 

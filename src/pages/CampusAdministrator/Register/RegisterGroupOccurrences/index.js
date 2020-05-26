@@ -74,7 +74,7 @@ export default function RegisterGroupOccurrences() {
         setErrors(response.data.name);
       } else {
         loadAlertSuccess();
-        history.push('/master/listCampus');
+        history.push('/campus/listGroupOccurrences');
       }
     } catch (error) {
       console.log(error);

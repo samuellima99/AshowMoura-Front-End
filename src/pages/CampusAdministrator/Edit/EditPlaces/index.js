@@ -18,7 +18,7 @@ export default function EditPlaces() {
   const [toggle, setToggle] = useState(true);
   const [namePlace, setNamePlace] = useState('');
   const [campus] = useState([]);
-  const [setCampusId] = useState('');
+  const [campusId,setCampusId] = useState('');
   const [showModal, setShowModal] = useState(false);
   const [errors, setErrors] = useState('');
 
@@ -70,8 +70,9 @@ export default function EditPlaces() {
   useEffect(() => {
     async function loadDataPlace() {
       const response = await api.get(`api/places/show/${id}`);
+      console.log(response.data)
       setNamePlace(response.data.name);
-      setCampusId(response.data.campus);
+      setCampusId(response.data.fk_campus_id);
       console.log(response.data);
     }
     loadDataPlace();
@@ -155,9 +156,7 @@ export default function EditPlaces() {
                         <label>Selecione um campus</label>
                         <select onChange={(e) => handleSelectCampus(e)}>
                           {
-                            campus.map(camp => (
-                              <option key={camp.id} value={camp.id}>{camp.name}</option>
-                            ))
+                            <option>{campusId}</option>
                           }
                         </select>
                         <p className="errors">{errors.fk_campus_id}</p>

@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { MdMenu, MdClose } from 'react-icons/md';
 import Swal from 'sweetalert2'
 
+import { useHistory } from 'react-router-dom';
+
 import '../../styles/global.css';
 
 import Sidebar from '../../../../components/MenuAdminCampus';
@@ -79,6 +81,8 @@ export default function RegisterObjects() {
     loadPlaces();
   }, []);
 
+  const history = useHistory();
+
   async function handleRegisterObjects(e) {
     e.preventDefault();
 
@@ -93,7 +97,7 @@ export default function RegisterObjects() {
         setErrors(response.data.name);
       } else {
         loadAlertSuccess();
-        //history.push('/campus/listPlaces');
+        history.push('/campus/listObject');
       }
     } catch (error) {
       console.log(error);

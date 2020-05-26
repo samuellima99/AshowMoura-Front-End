@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import { MdMenu, MdClose } from 'react-icons/md';
-import Swal from 'sweetalert2'
+import Swal from 'sweetalert2';
 
 import '../../styles/global.css';
 
@@ -83,11 +83,12 @@ export default function RegisterForm() {
 
   async function handleRegisterForm(e) {
     e.preventDefault();
-
+    const id = localStorage.getItem('@UserId')
+    console.log(id)
     try {
       const response = await api.post('api/forms/', {
         name: nameForm,
-        fk_user_id: userId
+        fk_user_id: id,
       });
 
       if (response.status !== 201) {
@@ -151,16 +152,6 @@ export default function RegisterForm() {
                           onChange={e => setNameForm(e.target.value)}
                         />
 
-                      </div>
-                      <div className="select-group">
-                        <label>Selecione um usuário</label>
-                        <select onChange={(e) => handleSelectPlace(e)}>
-                          {
-                            users.map(user => (
-                              <option key={user.id} value={user.id}>{user.name}</option>
-                            ))
-                          }
-                        </select>
                       </div>
                       <button
                         type="submit"

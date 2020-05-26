@@ -23,20 +23,8 @@
   justify-content: center;
 }
 
-.form-container-admin .form-admins .primary-collumn, .secundary-collumn {
+.form-container-admin .form-admins .primary-collumn {
   width: 36%;
-  height: 100%;
-  margin: 10px;
-  padding-top: 4%;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-}
-
-.form-container-admin .form-admins .secundary-collumn {
-  width: 36%;
-  height: 100%;
-  margin: 10px;
   padding-top: 4%;
   display: flex;
   align-items: center;
@@ -78,22 +66,15 @@
   color: #5c5b5b;
 }
 
-.form-admins .btn-container {
+.form-admins .btn-group {
   width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.form-admins .btn-container .btn-group {
-  width: 36%;
-  margin: 10px 10px 30px 10px;
   display: flex;
   align-items: center;
   flex-direction: column;
+  justify-content: center;
 }
 
-.form-admins .btn-container .btn-register {
+.form-admins .btn-register {
   width: 300px;
   height: 40px;
   border: none;
@@ -104,7 +85,7 @@
   background-color: #068C38;
 }
 
-.form-admins .btn-container .btn-cancel {
+.form-admins  .btn-cancel {
   width: 300px;
   height: 40px;
   border: none;
